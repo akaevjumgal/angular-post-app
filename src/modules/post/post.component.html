@@ -1,0 +1,7 @@
+<div class="article" *ngIf="post">
+  <h1>
+    {{ post.title }}
+  </h1>
+  <span class="mat-caption">{{ post.updatedAt | date:'short' }}</span>
+  <p class="mat-body-strong">{{ post.description }}</p>
+</div>

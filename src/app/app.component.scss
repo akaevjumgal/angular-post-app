@@ -1,0 +1,18 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  .brand {
+    cursor: pointer;
+  }
+}
+
+.add-btn {
+  margin-top: 4rem;
+}

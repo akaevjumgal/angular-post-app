@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core'
+import {MatDialog} from '@angular/material/dialog'
+import {AddPostDialogComponent} from '../modules/add-post-dialog/add-post-dialog.component'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-post';
+
+  constructor(private dialog: MatDialog) {
+  }
+
+  openDialog() {
+    this.dialog.open(AddPostDialogComponent, {
+      width: '350px'
+    })
+  }
 }

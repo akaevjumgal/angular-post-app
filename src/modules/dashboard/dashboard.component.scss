@@ -1,0 +1,24 @@
+
+.dashboard {
+  padding: 2rem 1.5rem;
+
+  .post-form-paper {
+    width: 350px;
+  }
+
+  .post-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 15px;
+    column-gap: 10px;
+
+    .post {
+      cursor: pointer;
+    }
+  }
+}
