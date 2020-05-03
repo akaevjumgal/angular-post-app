@@ -1,4 +1,14 @@
 
 .article {
   padding: 10px 15px;
+  position: relative;
+
+  &_actions {
+    position: absolute;
+    top: -1.2rem;
+    right: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 6rem;
+  }
 }

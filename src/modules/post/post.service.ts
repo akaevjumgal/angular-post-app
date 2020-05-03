@@ -26,6 +26,14 @@ export class PostService {
     return this.http.post<PostModel>(`${environment.baseUrl}${this.path}`, post);
   }
 
+  updatePost(id: number, post: PostCreateDto): Observable<PostModel> {
+    return this.http.put<PostModel>(`${environment.baseUrl}${this.path}/${id}`, post)
+  }
+
+  deletePost(id: number): Observable<PostModel> {
+    return this.http.delete<PostModel>(`${environment.baseUrl}${this.path}/${id}`)
+  }
+
   get getPosts(): Observable<PostModel[]> {
     return this.posts;
   }

@@ -8,11 +8,16 @@
   font-size: 14px;
   text-transform: uppercase;
 
-  .brand {
-    cursor: pointer;
+  &_action {
+    display: flex;
+    align-items: center;
+  }
+
+  &_btn {
+    margin-top: 4rem;
   }
 }
 
-.add-btn {
-  margin-top: 4rem;
+.pointer {
+  cursor: pointer;
 }

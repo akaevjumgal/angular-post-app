@@ -1,15 +1,15 @@
-<form [formGroup]="postCreateForm">
-  <h1 mat-dialog-title>Add New Post</h1>
+<form [formGroup]="form">
+  <h1 mat-dialog-title>Post</h1>
   <div mat-dialog-content>
     <mat-form-field appearance="legacy" class="field">
       <mat-label>Title</mat-label>
       <input matInput formControlName="title">
-      <mat-error *ngIf="postCreateForm.get('title').invalid">Field is required</mat-error>
+      <mat-error *ngIf="form.get('title').invalid">Field is required</mat-error>
     </mat-form-field>
     <mat-form-field appearance="legacy" class="field">
       <mat-label>Description</mat-label>
       <textarea matInput formControlName="description" name="description"></textarea>
-      <mat-error *ngIf="postCreateForm.get('description').invalid">Field is required</mat-error>
+      <mat-error *ngIf="form.get('description').invalid">Field is required</mat-error>
     </mat-form-field>
   </div>
   <div mat-dialog-actions align="end">
@@ -18,10 +18,10 @@
       mat-raised-button
       mat-dialog-close
       color="primary"
-      [disabled]="postCreateForm.invalid"
-      (click)="onPost()"
+      [disabled]="form.invalid"
+      (click)="onSubmit()"
     >
-      post
+      save
     </button>
   </div>
 </form>

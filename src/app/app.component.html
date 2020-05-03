@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="toolbar">
-  <span routerLink="/" class="brand">Angular Post App</span>
-  <button mat-mini-fab color="warn" class="add-btn">
-    <mat-icon class="add-icon" (click)="openDialog()">add</mat-icon>
-  </button>
+  <span *ngIf="isRoot" routerLink="/" class="pointer">Posts</span>
+  <span *ngIf="!isRoot" (click)="location.back()" class="toolbar_action pointer">
+    <mat-icon>arrow_back</mat-icon> &nbsp;back
+  </span>
 </mat-toolbar>
 <router-outlet></router-outlet>

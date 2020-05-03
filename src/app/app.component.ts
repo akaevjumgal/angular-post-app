@@ -1,6 +1,5 @@
 import {Component} from '@angular/core'
-import {MatDialog} from '@angular/material/dialog'
-import {AddPostDialogComponent} from '../modules/add-post-dialog/add-post-dialog.component'
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,9 @@ import {AddPostDialogComponent} from '../modules/add-post-dialog/add-post-dialog
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(public location: Location) { }
 
-  constructor(private dialog: MatDialog) {
-  }
-
-  openDialog() {
-    this.dialog.open(AddPostDialogComponent, {
-      width: '350px'
-    })
+  get isRoot(): boolean {
+    return this.location.isCurrentPathEqualTo('/')
   }
 }

@@ -6,17 +6,12 @@ import {PostComponent} from '../modules/post/post.component'
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/posts',
-    pathMatch: 'full'
-  },
-  {
-    path: 'posts',
     component: DashboardComponent
   },
   {
     path: 'posts/:postId',
     component: PostComponent
-  }
+  },
 ]
 
 @NgModule({

@@ -1,7 +1,13 @@
 <div class="article" *ngIf="post">
-  <h1>
-    {{ post.title }}
-  </h1>
-  <span class="mat-caption">{{ post.updatedAt | date:'short' }}</span>
+  <div class="article_actions">
+    <button mat-mini-fab color="warn" (click)="openDialog()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="white" (click)="openConfirmDialog()">
+      <mat-icon color="warn">delete</mat-icon>
+    </button>
+  </div>
+  <h1>{{ post.title }}</h1>
+  <span class="mat-caption">{{ post.updatedAt | date:'MMM d, y, h:mm a' }}</span>
   <p class="mat-body-strong">{{ post.description }}</p>
 </div>
