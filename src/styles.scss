@@ -4,13 +4,16 @@
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Montserrat', sans-serif;;
   background-color: map-get($mat-light-theme-background, background);
 }
 * {
   outline: none;
 }
 
+$custom-typography: mat-typography-config(
+  $font-family: 'Montserrat',
+);
 
 $dark-primary: mat-palette($mat-grey, 900);
 $dark-accent: mat-palette($mat-grey, A700);
@@ -32,3 +35,4 @@ $light-theme: mat-light-theme($light-primary-palette, $light-accent-palette, mat
 }
 
 @include angular-material-theme($light-theme);
+@include angular-material-typography($custom-typography);
