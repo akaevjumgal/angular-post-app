@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "angular-post"
+  "defaultProject": "angular-post",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }

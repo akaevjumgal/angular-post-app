@@ -7,15 +7,21 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: map-get($mat-light-theme-background, background);
 }
+* {
+  outline: none;
+}
+
 
 $dark-primary: mat-palette($mat-grey, 900);
 $dark-accent: mat-palette($mat-grey, A700);
 $dark-warn: mat-palette($mat-red);
 $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
-$light-primary: mat-palette($mat-blue, 900);
-$light-accent: mat-palette($mat-cyan, A700);
-$light-theme: mat-light-theme($light-primary, $light-accent, mat-palette($mat-red));
+$light-primary: mat-color($mat-blue, 900);
+$light-accent: mat-color($mat-cyan, A700);
+$light-primary-palette: mat-palette($mat-blue, 900);
+$light-accent-palette: mat-palette($mat-cyan, A700);
+$light-theme: mat-light-theme($light-primary-palette, $light-accent-palette, mat-palette($mat-red));
 
 .dark-bg-accent {
   background-color: mat-color($mat-grey, A700);

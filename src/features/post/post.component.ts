@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core'
 import {PostService} from './post.service'
-import {PostModel} from './post.model'
 import {ActivatedRoute, Router} from '@angular/router'
 import {MatDialog} from '@angular/material/dialog'
 import {IPostDialogData, PostDialogComponent} from '../post-dialog/post-dialog.component'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 import {AlertDialogComponent, IAlertDialogData} from '../alert-dialog/alert-dialog.component'
+import {Post} from './post.model'
 
 @Component({
   selector: 'app-post',
@@ -14,7 +14,7 @@ import {AlertDialogComponent, IAlertDialogData} from '../alert-dialog/alert-dial
 })
 export class PostComponent implements OnInit {
 
-  public post: PostModel
+  public post: Post
   public postForm: FormGroup
 
   constructor(
@@ -31,9 +31,9 @@ export class PostComponent implements OnInit {
   }
 
   fetchPostDetails() {
-    let postId: number = null
-    this.activatedRoute.paramMap.subscribe(p => postId = +p.get('postId'))
-    this.postService.findOne(postId).subscribe(post => this.post = post)
+    let postId: string
+    this.activatedRoute.paramMap.subscribe(p => postId = p.get('postId'))
+    this.post = this.postService.findOne(postId)
   }
 
   openDialog() {
@@ -42,36 +42,34 @@ export class PostComponent implements OnInit {
       title: [title, Validators.required],
       description: [description, Validators.required],
     })
-    this.editDialog.open(PostDialogComponent, {
-      width: '350px',
+    this.editDialog.open<PostDialogComponent, IPostDialogData>(PostDialogComponent, {
+      width: '40vw',
       role: 'alertdialog',
       data: {
         onSave: () => this.onSave(),
         postForm: this.postForm
-      } as IPostDialogData
+      }
     })
   }
 
   openConfirmDialog() {
-    this.deleteDialog.open(AlertDialogComponent, {
+    this.deleteDialog.open<AlertDialogComponent, IAlertDialogData>(AlertDialogComponent, {
       width: '350px',
       data: {
         onSubmit: () => this.onDelete(),
         message: 'Are you sure you want to delete this post?'
-      } as IAlertDialogData
+      }
     })
   }
 
   onSave() {
     this.postService.updatePost(this.post.id, this.postForm.getRawValue())
-      .toPromise()
-      .then(() => this.fetchPostDetails())
+    this.fetchPostDetails()
   }
 
   onDelete() {
     this.postService.deletePost(this.post.id)
-      .toPromise()
-      .then(() => this.router.navigate(['/']))
+    this.router.navigate(['/'])
   }
 
 }

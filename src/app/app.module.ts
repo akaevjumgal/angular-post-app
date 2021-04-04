@@ -1,35 +1,22 @@
-import {BrowserModule} from '@angular/platform-browser'
 import {NgModule} from '@angular/core'
 
-import {AppRoutingModule} from './app-routing.module'
 import {AppComponent} from './app.component'
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {DashboardModule} from '../modules/dashboard/dashboard.module'
-import {HttpClientModule} from '@angular/common/http'
-import {MatToolbarModule} from '@angular/material/toolbar'
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-import {MatIconModule, MatIconRegistry} from '@angular/material/icon'
-import {PostModule} from '../modules/post/post.module'
-import {PostDialogModule} from '../modules/post-dialog/post-dialog.module'
+import {SharedModule} from '../shared/shared.module'
+import {CoreModule} from '../core/core.module'
+import {FeaturesModule} from '../features/features.module'
+import {AppRoutingModule} from './app-routing.module'
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
+    CoreModule,
+    SharedModule,
     AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    DashboardModule,
-    MatToolbarModule,
-    MatIconModule,
-    PostDialogModule,
-    PostModule
+    FeaturesModule,
   ],
-  providers: [MatIconRegistry],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

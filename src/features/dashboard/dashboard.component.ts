@@ -25,22 +25,21 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.postService.findAll()
+    // this.postService.findAll()
   }
 
   openDialog() {
-    this.dialog.open(PostDialogComponent, {
-      width: '350px',
+    this.dialog.open<PostDialogComponent, IPostDialogData>(PostDialogComponent, {
+      width: '40vw',
       data: {
         onSave: () => this.onSave(),
         postForm: this.postCreateForm
-      } as IPostDialogData,
+      },
     })
   }
 
   onSave() {
     this.postService.createPost(this.postCreateForm.getRawValue())
-      .toPromise()
-      .then(() => this.postService.findAll())
+    this.postCreateForm.reset()
   }
 }

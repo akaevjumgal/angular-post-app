@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core'
 import {Routes, RouterModule} from '@angular/router'
-import {DashboardComponent} from '../modules/dashboard/dashboard.component'
-import {PostComponent} from '../modules/post/post.component'
+import {DashboardComponent} from '../features/dashboard/dashboard.component'
+import {PostComponent} from '../features/post/post.component'
+import {SettingsComponent} from '../features/settings/settings.component'
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: 'posts/:postId',
     component: PostComponent
   },
+  {
+    path: 'settings',
+    component: SettingsComponent
+  }
 ]
 
 @NgModule({
