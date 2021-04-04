@@ -23,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'angular-post'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-post');
+    expect(app.title).toEqual('angular-post-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-post app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('angular-post-app app is running!');
   });
 });
