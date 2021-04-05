@@ -1,0 +1,27 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    class="sidenav"
+    mode="side"
+    #drawer
+  >
+    <mat-nav-list>
+      <mat-list-item routerLink="/" class="list-item">
+        <mat-icon mat-list-icon color="primary">home</mat-icon>
+        <span>HOME</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/settings">
+        <mat-icon mat-list-icon color="primary">settings</mat-icon>
+        <span>SETTINGS</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span routerLink="/" class="pointer">Layout</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

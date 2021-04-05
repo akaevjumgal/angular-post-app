@@ -1,0 +1,16 @@
+<mat-progress-bar *ngIf="userProfileQuery.isLoading$ | async" mode="indeterminate"></mat-progress-bar>
+<main class="container mx-auto flex items-center justify-center h-full">
+  <mat-card class="m-2 w-1/2">
+    <mat-card-header class="flex justify-center">
+      <mat-card-title>Login with Google</mat-card-title>
+    </mat-card-header>
+    <mat-card-footer>
+      <mat-card-actions align="center">
+        <button class="mx-auto" mat-raised-button (click)="login()" color="primary">
+          Login
+          <mat-icon inline>login</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card-footer>
+  </mat-card>
+</main>

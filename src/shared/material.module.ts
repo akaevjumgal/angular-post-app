@@ -8,6 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatInputModule} from '@angular/material/input'
 import {MatCardModule} from '@angular/material/card'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {MatCardModule} from '@angular/material/card'
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule
   ],
   exports: [
     MatSidenavModule,
@@ -31,6 +33,7 @@ import {MatCardModule} from '@angular/material/card'
     MatDialogModule,
     MatInputModule,
     MatCardModule,
+    MatProgressBarModule
   ],
   providers: [MatIconRegistry]
 })
